@@ -1,24 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+:root {
+  --background: black;
+  --textgreen: yellowgreen;
+}
+
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-size: 16px;
   line-height: 1;
+  color: var(--back-ground);
 }
 
 textarea{
   background: transparent;
   border: none;
   resize: none;
-  color: #000000;
+  color: var(--textgreen);
   border-left: 1px solid black;
   padding: 10px;
 }
 
 .jumbotron {
   text-align: center;
-  background-color: transparent;
-  color: black;
+  background-color: var(--background);
+  color: var(--textgreen);
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 5px solid var(--textgreen);
 }
 
 .description{
@@ -33,7 +41,7 @@ textarea{
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  /* border-top: 1px solid var(--textgreen); */
 }
 
 .hour {
