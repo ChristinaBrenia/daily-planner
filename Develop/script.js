@@ -1,9 +1,11 @@
 $(document).ready(function () {
 
-    //Dated
+    //Today date and appending it to html
 
-    let date = new Date();
-    $('#currentDay').append(date);
+    let today = moment().format('MMMM Do YYYY');
+    $('#currentDay').append(today);
+
+
 
 
 })
