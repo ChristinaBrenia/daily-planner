@@ -2,18 +2,48 @@ $(document).ready(function () {
 
     //Today date and appending it to html
 
-    let today = moment().format('MMMM Do YYYY');
+    var today = moment().format('MMMM Do YYYY');
     $('#currentDay').append(today);
 
-    let $text9am = $('#9am');
-    let $text10am = $('#10am');
-    let $text11am = $('#11am');
-    let $text12pm = $('#12pm');
-    let $text1pm = $('#1pm');
-    let $text2pm = $('#2pm');
-    let $text3pm = $('#3pm');
-    let $text4pm = $('#4pm');
-    let $text5pm = $('#5pm');
+    var now = parseInt(moment().format('HH'));
+    console.log(now)
+
+
+
+    var $text9am = $('#9am');
+    var $text10am = $('#10am');
+    var $text11am = $('#11am');
+    var $text12pm = $('#12pm');
+    var $text1pm = $('#1pm');
+    var $text2pm = $('#2pm');
+    var $text3pm = $('#3pm');
+    var $text4pm = $('#4pm');
+    var $text5pm = $('#5pm');
+
+    // Changes colors based on the future - present - or past hour
+
+    $("textarea").each(function () {
+        //Looks for string adds class
+        var name = parseInt($(this).attr('name'));
+        console.log(name)
+
+        if (name < now) {
+            $(this).addClass('past');
+        }
+        console.log(name)
+        if (name > now) {
+            $(this).addClass('future')
+        }
+
+
+        if (name === now) {
+            $(this).addClass('present')
+        }
+
+
+    })
+
+
 
 
     //Saving text to local storage
@@ -30,6 +60,8 @@ $(document).ready(function () {
         localStorage.setItem('5pm', ($text5pm.val()))
     })
 
+
+    //Creates the ability to save text when browser is refreshed
     $('#9am').append(localStorage.getItem('9am'));
     $('#10am').append(localStorage.getItem('10am'));
     $('#11am').append(localStorage.getItem('11am'));
